@@ -1,0 +1,34 @@
+version: '3'
+services:
+  traefik:
+    image: traefik
+    command: --web --docker --docker.domain=docker.localhost --docker.watch \
+      --logLevel=DEBUG \
+      --defaultEntryPoints='http,https' \
+      --entryPoints='Name:http Address::80' \
+      --entryPoints='Name:https Address::443 TLS' \
+      --docker.exposedbydefault=false \
+      --acme \
+      --acme.entryPoint='https' \
+      --acme.email='agnaldomarinho7@gmail.com' \
+      --acme.ondemand=false \
+      --acme.acmelogging=true \
+      --acme.onhostrule=true \
+      --acme.storage='/etc/traefik/acme/acme.json'
+    networks:
+      - default
+      - traefik-net
+    ports:
+      - "80:80"
+      - "8080:8080"
+      - "443:443"
+    volumes:
+      - /var/run/docker.sock:/var/run/docker.sock
+      - traefikdata:/etc/traefik/acme
+
+networks:
+  traefik-net:
+
+volumes:
+  traefikdata:
+

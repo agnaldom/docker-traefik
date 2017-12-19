@@ -6,3 +6,4 @@
 
 Sobre mais como funciona do o Traefik
 * [Traefik desvendadno entrypoint frontend e backend](https://churrops.io/2017/11/21/traefik-desvendando-entrypoint-frontend-e-backend/)
+* [Docker load balancer com traefik e swam](https://churrops.io/2017/11/08/docker-load-balancer-com-traefik-e-swarm/)

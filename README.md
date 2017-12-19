@@ -3,3 +3,6 @@
 </p>
 
   This is how I've managed to get this working with the LetsEncrypt automated renewal using Docker Swarm and Docker Compose V3
+
+Sobre mais como funciona do o Traefik
+* [Traefik desvendadno entrypoint frontend e backend](https://churrops.io/2017/11/21/traefik-desvendando-entrypoint-frontend-e-backend/)

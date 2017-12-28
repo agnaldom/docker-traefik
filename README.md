@@ -6,7 +6,7 @@
 [![Docs](https://img.shields.io/badge/docs-current-brightgreen.svg)](https://docs.traefik.io)
 [![Go Report Card](https://goreportcard.com/badge/containous/traefik)](http://goreportcard.com/report/containous/traefik)
 [![](https://images.microbadger.com/badges/image/traefik.svg)](https://microbadger.com/images/traefik)
-[![License](https://img.shields.io/badge/license-MIT-blue.svg)](https://github.com/containous/traefik/blob/master/LICENSE.md)
+[![License](https://img.shields.io/badge/license-MIT-blue.svg)](https://github.com/agnaldom/docker-traefik/blob/master/LICENSE)
 [![Join the chat at https://traefik.herokuapp.com](https://img.shields.io/badge/style-register-green.svg?style=social&label=Slack)](https://traefik.herokuapp.com)
 [![Twitter](https://img.shields.io/twitter/follow/traefikproxy.svg?style=social)](https://twitter.com/intent/follow?screen_name=traefikproxy)
 
@@ -15,6 +15,31 @@ Træfik (pronounced like [traffic](https://speak-ipa.bearbin.net/speak.cgi?speak
 It supports several backends ([Docker](https://www.docker.com/), [Swarm mode](https://docs.docker.com/engine/swarm/), [Kubernetes](https://kubernetes.io), [Marathon](https://mesosphere.github.io/marathon/), [Consul](https://www.consul.io/), [Etcd](https://coreos.com/etcd/), [Rancher](https://rancher.com), [Amazon ECS](https://aws.amazon.com/ecs), and a lot more) to manage its configuration automatically and dynamically.
 
 ---
+. **[Overview](#overview)** .
+---
+
+## Overview
+
+Imagine that you have deployed a bunch of microservices on your infrastructure. You probably used a service registry (like etcd or consul) and/or an orchestrator (swarm, Mesos/Marathon) to manage all these services.
+If you want your users to access some of your microservices from the Internet, you will have to use a reverse proxy and configure it using virtual hosts or prefix paths:
+
+- domain `api.domain.com` will point the microservice `api` in your private network
+- path `domain.com/web` will point the microservice `web` in your private network
+- domain `backoffice.domain.com` will point the microservices `backoffice` in your private network, load-balancing between your multiple instances
+
+Microservices are often deployed in dynamic environments where services are added, removed, killed, upgraded or scaled many times a day.
+
+Traditional reverse-proxies are not natively dynamic. You can't change their configuration and hot-reload easily.
+
+Here enters Træfik.
+
+![Architecture](docs/img/architecture.png)
+
+Træfik can listen to your service registry/orchestrator API, and knows each time a microservice is added, removed, killed or upgraded, and can generate its configuration automatically.
+Routes to your services will be created instantly.
+
+Run it and forget it!
+
 
   This is how I've managed to get this working with the LetsEncrypt automated renewal using Docker Swarm and Docker Compose V3
 

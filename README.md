@@ -43,7 +43,44 @@ Run it and forget it!
 
   This is how I've managed to get this working with the LetsEncrypt automated renewal using Docker Swarm and Docker Compose V3
 
+# Deployment
+
+## Docker
+[![Rocket.Chat logo](https://d207aa93qlcgug.cloudfront.net/1.95.5.qa/img/nav/docker-logo-loggedout.png)](https://hub.docker.com/r/rocketchat/rocket.chat/)
+
+### Install docker
+[Install Docker](https://docs.docker.com/engine/installation/)
+
+and 
+
+[Install Docker Compose](https://docs.docker.com/compose/install/)
+
+```
+git clone https://github.com/agnaldom/docker-registry.git
+```
+
+```
+cd docker-registry 
+```
+
+```
+docker-compose up -d
+```
+
+
+### Logs
+
+```
+docker-compose logs -f
+```
+
 ## About  Traefik more
 
 * [Traefik desvendadno entrypoint frontend e backend](https://churrops.io/2017/11/21/traefik-desvendando-entrypoint-frontend-e-backend/)
 * [Docker load balancer com traefik e swam](https://churrops.io/2017/11/08/docker-load-balancer-com-traefik-e-swarm/)
+* [Containous traefik](https://github.com/containous/traefik#overview)
+
+
+## License
+
+This project is distributed under [GNU General Public License, Version 3.0](LICENSE).

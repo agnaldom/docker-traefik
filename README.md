@@ -33,7 +33,7 @@ Traditional reverse-proxies are not natively dynamic. You can't change their con
 
 Here enters Træfik.
 
-![Architecture](docs/img/architecture.png)
+![Architecture](https://github.com/containous/traefik/blob/master/docs/img/architecture.png)
 
 Træfik can listen to your service registry/orchestrator API, and knows each time a microservice is added, removed, killed or upgraded, and can generate its configuration automatically.
 Routes to your services will be created instantly.

@@ -16,6 +16,9 @@ It supports several backends ([Docker](https://www.docker.com/), [Swarm mode](ht
 
 ---
 . **[Overview](#overview)** .
+****[Supported backends](#supported-backends)** .
+**[Web UI](#web-ui)** .
+
 ---
 
 ## Overview
@@ -41,6 +44,28 @@ Routes to your services will be created instantly.
 Run it and forget it!
 
 
+## Supported backends
+
+- [Docker](https://www.docker.com/) / [Swarm mode](https://docs.docker.com/engine/swarm/)
+- [Kubernetes](https://kubernetes.io)
+- [Mesos](https://github.com/apache/mesos) / [Marathon](https://mesosphere.github.io/marathon/)
+- [Rancher](https://rancher.com) (API, Metadata)
+- [Consul](https://www.consul.io/) / [Etcd](https://coreos.com/etcd/) / [Zookeeper](https://zookeeper.apache.org) / [BoltDB](https://github.com/boltdb/bolt)
+- [Eureka](https://github.com/Netflix/eureka)
+- [Amazon ECS](https://aws.amazon.com/ecs)
+- [Amazon DynamoDB](https://aws.amazon.com/dynamodb)
+- File
+- Rest API
+
+## Web UI
+
+You can access the simple HTML frontend of Træfik.
+
+![Web UI Providers](docs/img/web.frontend.png)
+![Web UI Health](docs/img/traefik-health.png)
+
+
+
   This is how I've managed to get this working with the LetsEncrypt automated renewal using Docker Swarm and Docker Compose V3
 
 # Deployment
@@ -56,11 +81,11 @@ and
 [Install Docker Compose](https://docs.docker.com/compose/install/)
 
 ```
-git clone https://github.com/agnaldom/docker-registry.git
+git clone https://github.com/agnaldom/docker-traefik.git
 ```
 
 ```
-cd docker-registry 
+cd docker-traefik 
 ```
 
 ```
@@ -79,6 +104,7 @@ docker-compose logs -f
 * [Traefik desvendadno entrypoint frontend e backend](https://churrops.io/2017/11/21/traefik-desvendando-entrypoint-frontend-e-backend/)
 * [Docker load balancer com traefik e swam](https://churrops.io/2017/11/08/docker-load-balancer-com-traefik-e-swarm/)
 * [Containous traefik](https://github.com/containous/traefik#overview)
+* [Traefik Official](https://traefik.io/)
 
 
 ## License
